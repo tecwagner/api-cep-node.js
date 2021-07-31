@@ -1,0 +1,82 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "API consultar CEP",
+        "description": "Essa API tem como objetivo retornar dados de endereço",
+        "contact": {
+            "email": "wagneroliveirarodrigues@gmail.com"
+        },
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/api/ceps": {
+            "get": {
+                "description": "Essa rota tem como objetivo retornar dados de endereço",
+                "summary": "Listar logradouro",
+                "tags": [
+                    "Ceps"
+                ],
+                "parameters": [
+                    {
+                        "name": "cep",
+                        "in": "query",
+                        "description": "Informe um CEP",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Ok",
+                        "content": {
+                            "aplication/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "$ref": "#/components/schemas/Cep"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "Cep": {
+                "type": "object",
+                "properties": {
+                    "cep": {
+                        "type": "string"
+                    },
+                    "logradouro": {
+                        "type": "string"
+                    },
+                    "complemento": {
+                        "type": "string"
+                    },
+                    "bairro": {
+                        "type": "string"
+                    },
+                    "localidade": {
+                        "type": "string"
+                    },
+                    "uf": {
+                        "type": "string"
+                    },
+                    "ibge": {
+                        "type": "string"
+                    },
+                    "gia": {
+                        "type": "string"
+                    },
+                    "ddd": {
+                        "type": "string"
+                    },
+                    "siafi": {
+                        "type": "string"
+                    }
+                }
+            }
+        }
+    }
+}

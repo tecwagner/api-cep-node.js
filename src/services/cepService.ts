@@ -15,7 +15,7 @@ class GetCepService {
     if (result.data.erro) {
       throw new Error(`CEP ${codeZip} inválido!`);
     }
-    return response.json(result.data);
+    return response.status(200).json(result.data);
   }
 }
 

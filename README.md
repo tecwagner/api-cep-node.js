@@ -15,3 +15,7 @@
 ## Para executar o projeto.
 
 - execute: yarn dev ou npm dev
+
+## Documentação da API Swagger
+
+    http://localhost:3002/api-docs/#/
