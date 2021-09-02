@@ -5,6 +5,6 @@ const router = Router();
 
 const getCepService = new GetCepService();
 
-router.get("/api/ceps", getCepService.handle);
+router.get("/api/v1/ceps", getCepService.handle);
 
 export { router };
