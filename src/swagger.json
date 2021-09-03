@@ -9,7 +9,7 @@
         "version": "1.0.0"
     },
     "paths": {
-        "/api/ceps": {
+        "/api/v1/ceps": {
             "get": {
                 "description": "Essa rota tem como objetivo retornar dados de endereço",
                 "summary": "Listar logradouro",
