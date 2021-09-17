@@ -1,7 +1,5 @@
 import { Request, Response } from "express";
 import axios from "axios";
-require("dotenv").config();
-
 class GetCepService {
   async handle(request: Request, response: Response) {
     const codeZip = String(request.query.cep);

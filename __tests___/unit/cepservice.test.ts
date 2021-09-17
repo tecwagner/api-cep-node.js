@@ -1,29 +1,32 @@
 import request from "supertest";
 import TestUtil from "../../src/common/test/TestUtil";
 
-const url = "http://localhost:3002";
+import { app } from "../../src/app";
 
-test("get /ceps retorna dados com sucesso", () => {
+const cepValido = "/api/v1/ceps?cep=14408050";
+
+const cepInvalido = "/api/v1/ceps?cep=22333999";
+
+const cepMinLength = "/api/v1/ceps?cep=22333";
+
+test("get /ceps - retorna dados com sucesso", async () => {
   const cep = TestUtil.giveMeValidZipCode();
-  return request(url)
-    .get("/api/v1/ceps?cep=14407351")
-    .then((response) => {
-      expect(response.status).toBe(200);
-      expect(cep);
-    });
+  const response = await request(app).get(cepValido);
+  expect(response.status).toBe(200);
+  expect(cep);
 });
 
-test("get /ceps retorna cep inválido", () => {
-  return request(url)
-    .get("/api/v1/ceps?cep=22333999")
+test("get /ceps - retorna cep inválido", () => {
+  return request(app)
+    .get(cepInvalido)
     .then((response) => {
       expect(response.status).toBe(400);
     });
 });
 
-test("get /ceps retorna um valor válido", () => {
-  return request(url)
-    .get("/api/v1/ceps?cep=22333")
+test("get /ceps - validando o limite de caracter informado", () => {
+  return request(app)
+    .get(cepMinLength)
     .then((response) => {
       expect(response.status).toBe(400);
     });
