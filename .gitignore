@@ -1,2 +1,4 @@
 /node_modules
 /api-cep-node.js.rar
+/coverage
+/.env
